@@ -11,22 +11,25 @@
 </header>
 <main>
     <form action="/booksearch" method="get">
-        <label for="title">Search by Title:</label>
+        <label for="title">Search book by title. Can also be used to edit a book:</label>
         <input type="text" id="title" name="title" placeholder="Enter title">
         <button type="submit">Search</button>
     </form>
 
     <form action="/authorsearch" method="get">
-        <label for="name">Search by Name:</label>
+        <label for="name">Search author by name. Can also be used to edit an author:</label>
         <input type="text" id="name" name="name" placeholder="Enter name">
         <button type="submit">Search</button>
     </form>
 
     <ul>
-        <li><a href="/authors">Author</a></li>
-        <li><a href="/books">Book</a></li>
+        <li><a href="/authors">List of Authors</a></li>
+        <li><a href="/books">List of Books</a></li>
         <li><a href="/newauthor">Add New Author</a></li>
         <li><a href="/newbook">Add New Book</a></li>
+        <li><a href="/deleteauthor">Remove Author</a></li>
+        <li><a href="/deletebook">Remove Book</a></li>
+
 
     </ul>
 </main>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Book</title>
+</head>
+<body>
+
+<header>
+    <h1>Edit Book</h1>
+</header>
+
+<main>
+    <!-- Formulário de Edição do Livro -->
+    <form th:action="@{/editbook}" method="post" th:object="${book}">
+        <input type="hidden" th:field="*{id}" />
+        <label>
+            Title:
+            <input type="text" th:field="*{title}" placeholder="Enter title"/>
+        </label>
+        <br/>
+        <label>
+            Publication Year:
+            <input type="number" th:field="*{publicationYear}" placeholder="Enter publication year"/>
+        </label>
+        <br/>
+        <label>
+            Pages:
+            <input type="number" th:field="*{pages}" placeholder="Enter number of pages"/>
+        </label>
+        <br/>
+        <label>
+            Author:
+            <select th:field="*{author.id}">
+                <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.first_name + ' ' + author.last_name}"></option>
+            </select>
+        </label>
+
+        <br/>
+        <button type="submit">Update</button>
+    </form>
+</main>
+
+</body>
+</html>

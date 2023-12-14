@@ -96,5 +96,46 @@ public class CrudService {
         );
     }
 
+    public void deleteBook(Integer id) {
+        if (id == null) {
+            throw new IllegalArgumentException("Id null when deleting a book.");
+        }
+        bookRepository.deleteById(id);
+    }
 
+    public void deleteAuthor(Integer id) {
+        if (id == null) {
+            throw new IllegalArgumentException("Id null when deleting an author.");
+        }
+        authorRepository.deleteById(id);
+    }
+
+
+    public void deleteAuthorById(Integer id) {
+        if (id == null) {
+            throw new IllegalArgumentException("Id null when deleting an author.");
+        }
+        authorRepository.deleteById(id);
+    }
+
+    public void deleteBookById(Integer id) {
+        if (id == null) {
+            throw new IllegalArgumentException("Id null when deleting a book.");
+        }
+        bookRepository.deleteById(id);
+    }
+
+    public Book editBook(Book book) {
+        if (book == null ) {
+            throw new InvalidAuthorException("Book null when editing an book.");
+        }
+        return bookRepository.save(book);
+    }
+
+    public Author editAuthor(Author author) {
+        if (author == null ) {
+            throw new InvalidAuthorException("Author null when editing an author.");
+        }
+        return authorRepository.save(author);
+    }
 }

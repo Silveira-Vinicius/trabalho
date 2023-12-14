@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Book</title>
+</head>
+<body>
+
+<header>
+    <h1>New Book</h1>
+</header>
+
+<main>
+    <form th:action="@{/newbook}" method="post" th:object="${book}" th:style="'display:inline'" th:class="'form-group'">
+        <label>
+            Title:
+            <input type="text" id="title" name="title" placeholder="Enter title"/>
+        </label>
+        <br/>
+        <label>
+            Publication Year:
+            <input type="number" id="publicationYear" name="publicationYear" placeholder="Enter publication year"/>
+        </label>
+        <br/>
+        <label>
+            Pages:
+            <input type="number" id="pages" name="pages" placeholder="Enter number of pages"/>
+        </label>
+        <br/>
+        <label>
+            Author:
+            <select id="author" name="author_id">
+                <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.first_name + ' ' + author.last_name}"></option>
+            </select>
+        </label>
+
+        <br/>
+        <button type="submit">Submit</button>
+    </form>
+</main>
+<div th:if="${successMessage}">
+    <div class="alert alert-success" th:text="${successMessage}"></div>
+</div>
+
+</body>
+</html>

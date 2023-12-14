@@ -1,19 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
 <body>
 
-        <header>
-            <h1>Crud</h1>
-        </header>
-        <main>
-            <ul>
-                <li><a href="/authors">Author</a></li>
-                <li><a href="/books">Book</a></li>
-            </ul>
-        </main>
+<header>
+    <h1>Crud</h1>
+</header>
+<main>
+    <form action="/booksearch" method="get">
+        <label for="title">Search by Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter title">
+        <button type="submit">Search</button>
+    </form>
+
+    <form action="/authorsearch" method="get">
+        <label for="name">Search by Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter name">
+        <button type="submit">Search</button>
+    </form>
+
+    <ul>
+        <li><a href="/authors">Author</a></li>
+        <li><a href="/books">Book</a></li>
+        <li><a href="/newauthor">Add New Author</a></li>
+        <li><a href="/newbook">Add New Book</a></li>
+
+    </ul>
+</main>
 </body>
 </html>

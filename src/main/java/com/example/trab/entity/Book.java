@@ -15,18 +15,15 @@ import java.io.Serializable;
 public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Integer id;
 
     private String title;
 
-    private Integer publication_year;
+    private Integer publicationYear;
 
     private Integer pages;
 
-    private Integer author_id;
-
     @ManyToOne
-    @JoinColumn(name = "author_id", insertable = false, updatable = false)
+    @JoinColumn(name = "author_id")
     private Author author;
 }

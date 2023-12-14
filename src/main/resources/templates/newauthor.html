@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Author</title>
+</head>
+<body>
+
+<header>
+    <h1>New Author</h1>
+</header>
+
+<main>
+    <form th:action="@{/newauthor}" th:object="${author}" method="post">
+        <label>
+            First Name:
+            <input type="text" id="first_name" th:field="*{first_name}"/>
+        </label>
+        <br/>
+        <label>
+            Last Name:
+            <input type="text" id="last_name" th:field="*{last_name}"/>
+        </label>
+        <br/>
+        <label>
+            Nationality:
+            <input type="text" id="nationality" th:field="*{nationality}"/>
+        </label>
+        <br/>
+        <button type="submit">Submit</button>
+    </form>
+</main>
+
+<div th:if="${successMessage}">
+    <div class="alert alert-success" th:text="${successMessage}"></div>
+</div>
+
+
+</body>
+</html>

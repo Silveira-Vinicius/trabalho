@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Author Search</title>
+</head>
+<body>
+
+<header>
+    <h1>Author Search</h1>
+</header>
+<main>
+    <form action="/authorsearch" method="get">
+        <label for="name">Search by Partial Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter name">
+        <button type="submit">Search</button>
+    </form>
+
+    <ul>
+        <li th:each="author : ${authors}">
+            <span th:text="${author.first_name + ' ' + author.last_name}"></span>
+        </li>
+    </ul>
+</main>
+
+</body>
+</html>

@@ -25,6 +25,7 @@ public class Author implements Serializable {
 
     private String nationality;
 
-    @OneToMany(mappedBy = "author")
+    //deletar um autor, deleta também os seus livros
+    @OneToMany(mappedBy = "author", cascade = CascadeType.REMOVE)
     private List<Book> books;
 }

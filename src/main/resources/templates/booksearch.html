@@ -3,23 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Book Search</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
 <header>
     <h1>Book Search</h1>
 </header>
 <main>
-    <form action="/booksearch" method="get">
-        <label for="partialTitle">Search by Partial Title:</label>
-        <input type="text" id="partialTitle" name="partialTitle" placeholder="Enter partial title">
-        <button type="submit">Search</button>
-    </form>
 
     <ul>
         <li th:each="book : ${books}">
             <span th:text="${book.title}"></span>
+            <a th:href="@{'/editbook/' + ${book.id}}">Edit</a>
         </li>
     </ul>
+
+    <p th:if="${#lists.isEmpty(books)}">No books found.</p>
 </main>
 </body>
 </html>

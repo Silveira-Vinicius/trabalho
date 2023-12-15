@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Author</title>
+</head>
+<body>
+
+<header>
+    <h1>Delete Author</h1>
+</header>
+
+<main>
+    <p style="color: red; font-weight: bold;">IMPORTANTE: ao apagar um autor, todos os livros deste autor também são apagados</p>
+
+    <form th:action="@{/deleteauthor}" method="post">
+        <label for="authorId">Select author to delete:</label>
+        <select id="authorId" name="id">
+            <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.first_name +
+                ' ' + author.last_name}"></option>
+        </select>
+        <button type="submit">Delete</button>
+    </form>
+</main>
+
+</body>
+</html>

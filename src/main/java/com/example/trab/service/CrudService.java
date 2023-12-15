@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -37,6 +38,7 @@ public class CrudService {
         return authorRepository.findByPartialName(partialName);
     }
 
+
     public Book findById(Integer id) {
         if (id == null) {
             throw new IllegalArgumentException("Id null when fetching for a book.");
@@ -45,6 +47,7 @@ public class CrudService {
                 () -> new BookNotFoundException("No book found for id " + id)
         );
     }
+
 
     public Book findByTitle(String title) {
         if (title == null) {
@@ -94,20 +97,6 @@ public class CrudService {
         return authorRepository.findById(id).orElseThrow(
                 () -> new AuthorNotFoundException("No author found for id " + id)
         );
-    }
-
-    public void deleteBook(Integer id) {
-        if (id == null) {
-            throw new IllegalArgumentException("Id null when deleting a book.");
-        }
-        bookRepository.deleteById(id);
-    }
-
-    public void deleteAuthor(Integer id) {
-        if (id == null) {
-            throw new IllegalArgumentException("Id null when deleting an author.");
-        }
-        authorRepository.deleteById(id);
     }
 
 

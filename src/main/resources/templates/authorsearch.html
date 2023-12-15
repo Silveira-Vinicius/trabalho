@@ -20,6 +20,13 @@
         <li th:each="author : ${authors}">
             <span th:text="${author.first_name + ' ' + author.last_name}"></span>
             <a th:href="@{/editauthor(id=${author.id})}">Edit</a>
+
+            <ul>
+                <li th:each="book : ${author.books}">
+                    <span th:text="${book.title}"></span>
+                    <!-- Adicione mais detalhes do livro, se necessário -->
+                </li>
+            </ul>
         </li>
     </ul>
 

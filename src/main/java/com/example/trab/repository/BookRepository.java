@@ -1,5 +1,6 @@
 package com.example.trab.repository;
 
+import com.example.trab.entity.Author;
 import com.example.trab.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,5 +19,5 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
 
     @Query("SELECT b FROM Book b WHERE b.author = :author")
-    List<Book> findByAuthor(@Param("author") String author);
+    List<Book> findByAuthor(@Param("author") Author author);
 }

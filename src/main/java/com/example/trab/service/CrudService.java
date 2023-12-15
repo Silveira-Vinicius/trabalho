@@ -94,9 +94,13 @@ public class CrudService {
         if (id == null) {
             throw new IllegalArgumentException("Id null when fetching for an author.");
         }
-        return authorRepository.findById(id).orElseThrow(
+        Author author = authorRepository.findById(id).orElseThrow(
                 () -> new AuthorNotFoundException("No author found for id " + id)
         );
+
+        author.setBooks(bookRepository.findByAuthor(author));
+
+        return author;
     }
 
 

@@ -24,6 +24,8 @@
     <ul>
         <li th:each="book : ${books}">
             <span th:text="${book.title}"></span>
+            <span> by </span>
+            <span th:text="${book.author.first_name + ' ' + book.author.last_name}"></span>
             <a th:href="@{'/editbook/' + ${book.id}}">Edit</a>
         </li>
     </ul>
